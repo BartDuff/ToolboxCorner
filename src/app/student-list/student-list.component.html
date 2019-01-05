@@ -1,0 +1,20 @@
+<ul class="collection" *ngFor="let student of students | async">
+  <li class="collection-item avatar">
+    <img src="" alt="STUD" class="circle">
+    <span class="title">{{ student.Name }} {{ student.Surname }}</span>
+    <p>{{ student.Birthday }}<br>
+      {{ student.Birthplace }}<br>
+      {{ student.Nationality }}<br>
+      {{ student.Address }}<br>
+      {{ student.ZipCode }}<br>
+      {{ student.City }}<br>
+    </p>
+    <a [routerLink]="['/students_list/', student._id]" class="btn-floating btn-large waves-effect waves-light teal">...</a>
+    <a [routerLink]="['/edit_student/', student._id]" class="btn-floating btn-large waves-effect waves-light teal">
+      <i class="material-icons">edit</i>
+    </a>
+    <button (click)="deleteStudent(student)" class="btn btn-lg btn-primary secondary-content">
+      <i class="material-icons">delete</i>
+    </button>
+  </li>
+</ul>

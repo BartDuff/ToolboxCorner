@@ -1,0 +1,24 @@
+<p *ngIf="!student">Chargement en cours...</p>
+<div class="card big" *ngIf="student">
+  <div class="card-content">
+    <h4 class="teal darken-1">Détails sur l'étudiant:</h4>
+    <span class="card-title">{{ student.Name }} {{ student.Surname }}</span>
+    <p>{{ student.Birthday }}</p>
+    <p>{{ student.Birthplace }}</p>
+    <p>{{ student.Nationality }}</p>
+    <p>{{ student.Address }}</p>
+    <p>{{ student.ZipCode }}</p>
+    <p>{{ student.City }}</p>
+    <div class="card-action">
+      <a routerLink="/students_list" class="btn btn-lg btn-primary center-align">
+        <i class="material-icons">arrow_back</i> Retour
+      </a>
+      <a [routerLink]="['/edit_student/', student._id]" class="btn-floating btn-large waves-effect waves-light teal">
+        <i class="material-icons">edit</i>
+      </a>
+      <button (click)="deleteStudent(student)" class="btn btn-lg btn-primary center-align">
+        <i class="material-icons">delete</i>
+      </button>
+    </div>
+  </div>
+</div>
